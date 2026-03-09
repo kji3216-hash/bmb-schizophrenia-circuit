@@ -1,0 +1,188 @@
+{
+  "project_overview": {
+    "title": "조현병 예측오차-회로 임상지도",
+    "description": "조현병 증상, 예측오차 유형, 뇌 회로를 통합적으로 매핑한 지식 구조",
+    "created_date": "2026-03-05",
+    "data_source": "14개 논문 분석"
+  },
+  "symptom_clusters": {
+    "positive": {
+      "symptoms": ["delusions", "hallucinations"],
+      "description": "양성 증상: 현실 검증 장애로 인한 잘못된 믿음과 지각",
+      "circuits": ["VTA-ventral_striatum", "PFC-thalamus-sensory", "hippocampus-VTA"],
+      "key_mechanisms": ["aberrant_salience", "corollary_discharge_failure", "context_hyperactivity"],
+      "prediction_error_types": ["reward_pe", "sensory_pe", "contextual_pe"]
+    },
+    "negative": {
+      "symptoms": ["anhedonia", "avolition", "asociality"],
+      "description": "음성 증상: 보상 반응성 저하와 동기 부족",
+      "circuits": ["ventral_striatum-PFC", "mesocortical_dopamine", "amygdala-PFC"],
+      "key_mechanisms": ["reward_hypo-responsiveness", "motivation_deficit", "social_salience_reduction"],
+      "prediction_error_types": ["reward_pe", "error_monitoring_pe"]
+    },
+    "cognitive": {
+      "symptoms": ["working_memory_deficit", "executive_dysfunction"],
+      "description": "인지 증상: 작업기억, 집행기능, 오류 모니터링 장애",
+      "circuits": ["DLPFC-dorsal_striatum-thalamus", "ACC-PFC", "cerebellum-PFC"],
+      "key_mechanisms": ["circuit_instability", "error_monitoring_failure", "timing_disruption"],
+      "prediction_error_types": ["error_monitoring_pe", "contextual_pe"]
+    }
+  },
+  "prediction_error_circuits": {
+    "reward_pe": {
+      "regions": ["VTA", "SNc", "ventral_striatum", "PFC"],
+      "pe_type": "RPE (Reward Prediction Error)",
+      "normal_function": "기대 보상 vs 실제 보상 차이로 가치 학습",
+      "schizophrenia_distortion": "RPE 과대/과소 → 살리언스 부여 이상",
+      "clinical_implication": "망상 형성, 무쾌감, 동기 저하"
+    },
+    "sensory_pe": {
+      "regions": ["thalamus", "sensory_cortex", "PFC"],
+      "pe_type": "MMN (Mismatch Negativity) / Sensory PE",
+      "normal_function": "예측 감각 vs 실제 감각 차이로 환경 이해",
+      "schizophrenia_distortion": "감각 PE 저하 → 상위 예측이 지각 지배",
+      "clinical_implication": "환각, 현실 검증 장애"
+    },
+    "contextual_pe": {
+      "regions": ["hippocampus", "PFC", "VTA"],
+      "pe_type": "Contextual PE / Memory-based PE",
+      "normal_function": "맥락 변화 감지 → 적절한 반응 전환",
+      "schizophrenia_distortion": "맥락 PE 과민 → 안정된 맥락에서도 변화로 착각",
+      "clinical_implication": "망상 형성, 상황 판단 장애"
+    },
+    "error_monitoring_pe": {
+      "regions": ["ACC", "PFC", "cerebellum"],
+      "pe_type": "Error Monitoring PE / Performance PE",
+      "normal_function": "오류 감지 → 행동 수정",
+      "schizophrenia_distortion": "오류 PE 저하 → 실수 인식 불가",
+      "clinical_implication": "인지 경직성, 판단력 저하"
+    }
+  },
+  "multidimensional_causes": {
+    "genetic_factors": {
+      "C4A": {
+        "mechanism": "보체 경로 활성화 → 시냅스 가지치기 가속",
+        "effect_on_pe_circuits": "모든 PE 회로의 SNR 저하",
+        "evidence": "Sekar et al. 2016, Kapanaiah 2024"
+      },
+      "DISC1": {
+        "mechanism": "신경발달 조절 이상 → 회로 연결성 변화",
+        "effect_on_pe_circuits": "VTA-PFC 연결 약화",
+        "evidence": "Brandon & Sawa 2011, Kätzel 2020"
+      }
+    },
+    "neurotransmitter_systems": {
+      "dopamine": {
+        "normal_role": "살리언스 부여, RPE 신호 전달",
+        "schizophrenia_distortion": "과민 → 과도한 살리언스, RPE 과대",
+        "target_circuits": ["VTA_ventral_striatum"],
+        "evidence": "Millard 2021, Ermakova 2018"
+      },
+      "glutamate": {
+        "normal_role": "PE 계산, NMDA 수용체 통해 학습",
+        "schizophrenia_distortion": "NMDA 저기능 → 감각 PE 처리 장애",
+        "target_circuits": ["thalamus_sensory_cortex", "hippocampus_PFC"],
+        "evidence": "White 2015"
+      },
+      "GABA": {
+        "normal_role": "흥분-억제 균형, 회로 안정화",
+        "schizophrenia_distortion": "불균형 → 회로 불안정, 노이즈 증가",
+        "target_circuits": ["ACC_PFC", "PFC_local"],
+        "evidence": "Sterzer 2018"
+      }
+    },
+    "synaptic_pruning": {
+      "mechanism": "청소년기 과도한 시냅스 제거",
+      "effect_on_pe_circuits": "SNR 20-40% 감소 → PE 신호 품질 저하",
+      "interaction_with_genetics": "C4A 과발현 시 가속화",
+      "evidence": "Larsen 2023, Rentzsch 2015"
+    },
+    "neuroinflammation": {
+      "microglia_activation": {
+        "mechanism": "미세아교세포 과활성 → 시냅스 과다 제거",
+        "effect_on_pe_circuits": "PE 회로 구조적 손상",
+        "evidence": "Yu 2023, Hartmann 2024"
+      }
+    }
+  },
+  "simulation_model": {
+    "variables": {
+      "c4a_expression": {"description": "C4A 발현 수준 (0-100)", "unit": "percentile"},
+      "disc1_expression": {"description": "DISC1 발현 이상도 (0-100)", "unit": "percentile"},
+      "pruning_strength": {"description": "시냅스 가지치기 강도 (0-100)", "unit": "percentile"},
+      "dopamine_sensitivity": {"description": "도파민 민감도 (0-100)", "unit": "percentile"},
+      "glutamate_dysfunction": {"description": "글루타메이트 이상도 (0-100)", "unit": "percentile"},
+      "gaba_imbalance": {"description": "GABA 불균형도 (0-100)", "unit": "percentile"},
+      "microglia_activation": {"description": "미세아교세포 활성도 (0-100)", "unit": "percentile"},
+      "d2_antagonism": {"description": "약물 D2 차단률 (0-100)", "unit": "percent"}
+    },
+    "circuit_distortion_functions": {
+      "VTA_ventral_striatum": {
+        "pe_type": "reward_pe",
+        "base_activity": 0.3,
+        "distortion_factors": {
+          "c4a_expression": {"weight": 0.2, "direction": "increase"},
+          "pruning_strength": {"weight": 0.15, "direction": "increase"},
+          "dopamine_sensitivity": {"weight": 0.3, "direction": "increase"},
+          "microglia_activation": {"weight": 0.1, "direction": "increase"},
+          "d2_antagonism": {"weight": 0.3, "direction": "normalize"}
+        }
+      },
+      "thalamus_sensory_cortex": {
+        "pe_type": "sensory_pe",
+        "base_activity": 0.3,
+        "distortion_factors": {
+          "glutamate_dysfunction": {"weight": 0.25, "direction": "increase"},
+          "gaba_imbalance": {"weight": 0.2, "direction": "increase"},
+          "pruning_strength": {"weight": 0.15, "direction": "increase"}
+        }
+      },
+      "hippocampus_PFC": {
+        "pe_type": "contextual_pe",
+        "base_activity": 0.3,
+        "distortion_factors": {
+          "c4a_expression": {"weight": 0.15, "direction": "increase"},
+          "pruning_strength": {"weight": 0.25, "direction": "increase"},
+          "glutamate_dysfunction": {"weight": 0.2, "direction": "increase"}
+        }
+      },
+      "ACC_PFC": {
+        "pe_type": "error_monitoring_pe",
+        "base_activity": 0.3,
+        "distortion_factors": {
+          "gaba_imbalance": {"weight": 0.2, "direction": "increase"},
+          "glutamate_dysfunction": {"weight": 0.2, "direction": "increase"},
+          "pruning_strength": {"weight": 0.15, "direction": "increase"}
+        }
+      }
+    },
+    "symptom_mapping": {
+      "positive_symptoms": {
+        "threshold_distortion": 0.6,
+        "primary_circuits": ["VTA_ventral_striatum", "thalamus_sensory_cortex"],
+        "prediction": "D_circuit > 0.6 → 망상/환각 발현"
+      },
+      "negative_symptoms": {
+        "threshold_distortion": 0.4,
+        "primary_circuits": ["VTA_ventral_striatum"],
+        "prediction": "D_circuit < 0.4 → 무쾌감/무동기"
+      },
+      "cognitive_symptoms": {
+        "threshold_distortion": 0.5,
+        "primary_circuits": ["hippocampus_PFC", "ACC_PFC"],
+        "prediction": "D_circuit > 0.5 → 인지 경직성/오류 수정 실패"
+      }
+    }
+  },
+  "brain_coordinates": {
+    "VTA": {"x": 0, "y": -18, "z": -12, "color": "#FF4444", "pe_type": "reward"},
+    "ventral_striatum": {"x": 10, "y": 10, "z": -8, "color": "#FF8844", "pe_type": "reward"},
+    "PFC": {"x": 5, "y": 45, "z": 20, "color": "#44FF44", "pe_type": "integration"},
+    "thalamus": {"x": 0, "y": -10, "z": 5, "color": "#4444FF", "pe_type": "sensory"},
+    "sensory_cortex": {"x": 45, "y": -20, "z": 30, "color": "#44FFFF", "pe_type": "sensory"},
+    "hippocampus": {"x": 25, "y": -25, "z": -15, "color": "#FF44FF", "pe_type": "contextual"},
+    "ACC": {"x": 0, "y": 35, "z": 25, "color": "#FFFF44", "pe_type": "error_monitoring"},
+    "amygdala": {"x": 22, "y": -5, "z": -18, "color": "#FF8888", "pe_type": "emotional"},
+    "cerebellum": {"x": 0, "y": -50, "z": -10, "color": "#88FF88", "pe_type": "timing"}
+  }
+}
