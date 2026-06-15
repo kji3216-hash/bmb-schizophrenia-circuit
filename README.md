@@ -2,6 +2,8 @@
 
 **BMB 과제 — 서울대학교 뇌-마음-행동 교과목**
 
+[![Streamlit App](https://img.shields.io/badge/Streamlit-데모_바로가기-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://bmb-schizophrenia-circuit-jbgzsbocnkhbuge5wjbvyi.streamlit.app/)
+
 > 14개 선행 연구의 문헌 고찰을 바탕으로, 조현병의 양성·음성·인지 증상을 예측오차(Prediction Error) 유형과 뇌 회로 수준에서 통합 매핑한 대화형 시각화 도구
 
 ---
@@ -32,6 +34,10 @@
 ---
 
 ## 🚀 실행 방법
+
+### 🔗 라이브 데모
+
+[https://bmb-schizophrenia-circuit-jbgzsbocnkhbuge5wjbvyi.streamlit.app/](https://bmb-schizophrenia-circuit-jbgzsbocnkhbuge5wjbvyi.streamlit.app/)
 
 ### 로컬 실행
 
